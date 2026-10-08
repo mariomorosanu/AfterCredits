@@ -29,3 +29,16 @@ Details per stage: see the ai-log/ folder.
 ## Status
 - [x] Stage 1: static mockup
 - [ ] Stage 2: data logic in JavaScript
+
+## Verification table
+| ID    | Requirement                                          | Where (permalink)                    | How to check          |
+| ----- | ---------------------------------------------------- | ------------------------------------ | --------------------- |
+| S1-R1 | README: description, fields, sample data, how to run | [README.md](https://github.com/mariomorosanu/AfterCredits/blob/339d9b75e3826f944fb1acfd4775788104daf5f4/README.md?plain=1#L1-L31)               | read                  |
+| S1-R2 | AI usage section                                     | [README.md](https://github.com/mariomorosanu/AfterCredits/blob/339d9b75e3826f944fb1acfd4775788104daf5f4/README.md?plain=1#L22-L27)               | read                  |
+| S1-R3 | AI log for stage 1                                   | [ai-log/etapa-01.md](https://github.com/mariomorosanu/AfterCredits/blob/339d9b75e3826f944fb1acfd4775788104daf5f4/ai-log/etapa-01.md?plain=1#L1-L21)      | read                  |
+| S1-R4 | header, form (text + select), 3 cards with own data  | [index.html#L..-L..](https://github.com/mariomorosanu/AfterCredits/blob/339d9b75e3826f944fb1acfd4775788104daf5f4/index.html#L10-L61)      | open the page         |
+| S1-R5 | finished card looks different                        | [style.css#L..-L..](https://github.com/mariomorosanu/AfterCredits/blob/339d9b75e3826f944fb1acfd4775788104daf5f4/style.css#L242-L256)       | look at the card      |
+| S1-R6 | 2 columns on desktop, 1 under 700px                  | [style.css#L..-L..](https://github.com/mariomorosanu/AfterCredits/blob/339d9b75e3826f944fb1acfd4775788104daf5f4/style.css#L87-L95 , https://github.com/mariomorosanu/AfterCredits/blob/339d9b75e3826f944fb1acfd4775788104daf5f4/style.css#L280-L288)       | resize < 700px        |
+| S1-R7 | visible focus, readable dark theme                   | [style.css#L..-L..](https://github.com/mariomorosanu/AfterCredits/blob/339d9b75e3826f944fb1acfd4775788104daf5f4/style.css#L274-L277 , https://github.com/mariomorosanu/AfterCredits/blob/339d9b75e3826f944fb1acfd4775788104daf5f4/style.css#L30-L45)       | Tab; dark mode        |
+| S1-R8 | commit "Stage 1" pushed                              | [commit](https://github.com/mariomorosanu/AfterCredits/commit/339d9b75e3826f944fb1acfd4775788104daf5f4)                  | commit history        |
+
