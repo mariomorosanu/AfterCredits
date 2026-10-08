@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AfterCredits - mockup</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>AfterCredits</h1>
+    <p>Log, rate and rank the movies you've watched.</p>
+    <p class="app-count">3 movies, 2 still to watch</p>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>Add a movie</h2>
+      <form class="item-form">
+        <label>Movie title
+          <input type="text" name="title" maxlength="100" placeholder="e.g. Dune: Part Two" />
+        </label>
+        <label>Where
+          <select name="place">
+            <option value="cinema">Cinema</option>
+            <option value="streaming">Streaming</option>
+            <option value="home">Home</option>
+          </select>
+        </label>
+        <button type="submit">Add</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>My movies</h2>
+      <!-- When the list is empty: <p class="empty">No movies yet.</p> -->
+      <ul class="item-list">
+        <li class="item-card">
+          <div>
+            <h3>Dune: Part Two</h3>
+            <span class="badge badge-cinema">Cinema</span>
+          </div>
+          <span class="status">To watch</span>
+        </li>
+        <li class="item-card done">
+          <div>
+            <h3>Whiplash</h3>
+            <span class="badge badge-streaming">Streaming</span>
+          </div>
+          <span class="status">Watched</span>
+        </li>
+        <li class="item-card">
+          <div>
+            <h3>Parasite</h3>
+            <span class="badge badge-home">Home</span>
+          </div>
+          <span class="status">To watch</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="app-footer">Web Technologies project</footer>
+</body>
+</html>

@@ -1,0 +1,288 @@
+* { box-sizing: border-box; }
+
+/* ---------- Light theme ("old paper"), the default ---------- */
+:root {
+  --bg: #ece6d8;            /* page background */
+  --card: #f7f2e6;          /* panel background */
+  --text: #1c1a16;
+  --muted: #6b6558;
+  --accent: #9a6412;        /* amber */
+  --accent-dark: #7a4d0c;
+  --accent-soft: #f1e2c0;
+  --border: #d6cdb8;
+  --on-accent: #ffffff;     /* text on buttons */
+  --shadow: rgba(40, 30, 10, 0.15);
+
+  /* the header stays dark in both themes */
+  --header-from: #1d1a14;
+  --header-to: #0e0c09;
+  --header-text: #f4efe3;
+  --header-accent: #e0a43a;
+  --glow: rgba(224, 164, 58, 0.28);
+
+  /* one color for each value of the tag */
+  --badge-cinema: #6d28d9;
+  --badge-streaming: #0e7490;
+  --badge-home: #b45309;
+}
+
+/* ---------- Dark theme (neo-noir) ---------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0d12;
+    --card: #141821;
+    --text: #d7dae0;
+    --muted: #8b919e;
+    --accent: #e0a43a;
+    --accent-dark: #c48a22;
+    --accent-soft: #2a2314;
+    --border: #262c3a;
+    --on-accent: #0b0d12;
+    --shadow: rgba(0, 0, 0, 0.55);
+    --header-from: #141821;
+    --header-to: #07080c;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ---------- Header ---------- */
+.app-header {
+  background:
+    radial-gradient(ellipse 60% 120% at 50% -20%, var(--glow), transparent 70%),
+    linear-gradient(180deg, var(--header-from), var(--header-to));
+  color: var(--header-text);
+  text-align: center;
+  padding: 44px 16px 34px;
+  border-bottom: 2px solid var(--header-accent);
+}
+
+.app-header h1 {
+  margin: 0 0 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.app-header p {
+  margin: 0;
+  opacity: 0.85;
+}
+
+.app-count {
+  margin-top: 10px;
+  color: var(--header-accent);
+  font-weight: 600;
+  opacity: 1;
+}
+
+/* ---------- Two columns (Grid) ---------- */
+.container {
+  max-width: 1000px;
+  margin: 24px auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* ---------- Panels ---------- */
+.panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 20px var(--shadow);
+}
+
+.panel h2 {
+  margin: 0 0 16px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.3rem;
+}
+
+/* ---------- Form (Flexbox) ---------- */
+.item-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.item-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.item-form input,
+.item-form select {
+  padding: 10px 12px;
+  font: inherit;
+  font-weight: 400;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.item-form input::placeholder {
+  color: var(--muted);
+}
+
+button {
+  padding: 11px 16px;
+  font: inherit;
+  font-weight: 700;
+  color: var(--on-accent);
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+button:hover {
+  background: var(--accent-dark);
+}
+
+/* ---------- List and cards (Flexbox) ---------- */
+.item-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px 12px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.item-card:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.item-card > div {
+  flex: 1;
+}
+
+.item-card h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+/* poster drawn in CSS, on the left of the card */
+.item-card::before {
+  content: "";
+  flex-shrink: 0;
+  width: 46px;
+  height: 66px;
+  margin-right: 14px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: linear-gradient(160deg, var(--accent), var(--bg));
+  box-shadow: 0 3px 8px var(--shadow);
+}
+
+.item-card:has(.badge-cinema)::before {
+  background: linear-gradient(160deg, var(--badge-cinema), var(--bg));
+}
+
+.item-card:has(.badge-streaming)::before {
+  background: linear-gradient(160deg, var(--badge-streaming), var(--bg));
+}
+
+.item-card:has(.badge-home)::before {
+  background: linear-gradient(160deg, var(--badge-home), var(--bg));
+}
+
+/* status = the ticket stub */
+.status {
+  margin-left: 14px;
+  padding-left: 14px;
+  border-left: 2px dashed var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* ---------- Colored tags ---------- */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-cinema    { background: var(--badge-cinema); }
+.badge-streaming { background: var(--badge-streaming); }
+.badge-home      { background: var(--badge-home); }
+
+/* ---------- Finished item ---------- */
+.item-card.done h3 {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.item-card.done::before {
+  filter: grayscale(0.8);
+  opacity: 0.6;
+}
+
+.item-card.done .status::before {
+  content: "✓ ";
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ---------- Empty list (used from Stage 4) ---------- */
+.empty {
+  margin: 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ---------- Footer ---------- */
+.app-footer {
+  padding: 24px 16px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Visible focus for keyboard navigation ---------- */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Narrow screens (must stay last) ---------- */
+@media (max-width: 700px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .app-header h1 {
+    font-size: 2rem;
+  }
+}
