@@ -22,13 +22,18 @@ Open `index.html` in a browser. No build step, no server.
 ## AI usage
 | Tool   | Used for                                       |
 | ------ | ---------------------------------------------- |
-| Claude | choosing the project theme and README, stage 1 |
+| Claude | choosing the project theme and README, stage 1, JavaScript functions and console tests stage 2 |
 
 Details per stage: see the ai-log/ folder.
 
+## Stage 2: data logic
+Plain JavaScript, no DOM. `movies.js` holds the array and the functions
+that read and change it. Results are printed in the browser console (F12)..
+
 ## Status
 - [x] Stage 1: static mockup
-- [ ] Stage 2: data logic in JavaScript
+- [x] Stage 2: data logic in JavaScript
+- [ ] Stage 3: Vite and React project
 
 ## Verification table
 | ID    | Requirement                                          | Where (permalink)                    | How to check          |
