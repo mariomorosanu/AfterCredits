@@ -30,10 +30,22 @@ Details per stage: see the ai-log/ folder.
 Plain JavaScript, no DOM. `movies.js` holds the array and the functions
 that read and change it. Results are printed in the browser console (F12)..
 
+## Stage 3: Vite and React project
+The app now lives in `frontend/`, built with Vite. The data from stage 2 moved into the main component; the list is still printed raw. The stage 1 mockup and the stage 2 script are kept in `mockup/`.
+
+## How to run
+```bash
+cd frontend
+npm install
+npm run dev
+```
+Then open the address printed in the terminal (http://localhost:5173).
+
 ## Status
 - [x] Stage 1: static mockup
 - [x] Stage 2: data logic in JavaScript
-- [ ] Stage 3: Vite and React project
+- [x] Stage 3: Vite and React project
+- [ ] Stage 4: 
 
 ## Stage 1 verification table
 | ID    | Requirement                                          | Where (permalink)                    | How to check          |
