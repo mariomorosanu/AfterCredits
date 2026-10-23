@@ -20,9 +20,9 @@ Sample data used across all stages:
 Open `index.html` in a browser. No build step, no server.
 
 ## AI usage
-| Tool   | Used for                                       |
-| ------ | ---------------------------------------------- |
-| Claude | choosing the project theme and README, stage 1, JavaScript functions and console tests stage 2 |
+| Tool   | Used for                                                                                                                                                           |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Claude | choosing the project theme, README, HTML and CSS for the mockup (stage 1); JavaScript functions and console tests (stage 2); Vite and React setup (stage 3); React components, props and list rendering (stage 4) |
 
 Details per stage: see the ai-log/ folder.
 
@@ -32,6 +32,11 @@ that read and change it. Results are printed in the browser console (F12)..
 
 ## Stage 3: Vite and React project
 The app now lives in `frontend/`, built with Vite. The data from stage 2 moved into the main component; the list is still printed raw. The stage 1 mockup and the stage 2 script are kept in `mockup/`.
+
+## Stage 4: components
+The list is rendered from the data, through two components:
+- `MovieList` receives the whole array and renders one card per item
+- `MovieCard` receives a single item through props and displays it
 
 ## How to run
 ```bash
@@ -45,7 +50,8 @@ Then open the address printed in the terminal (http://localhost:5173).
 - [x] Stage 1: static mockup
 - [x] Stage 2: data logic in JavaScript
 - [x] Stage 3: Vite and React project
-- [ ] Stage 4: 
+- [x] Stage 4: components rendered from data
+- [ ] Stage 5: local state and events 
 
 ## Stage 1 verification table
 | ID    | Requirement                                          | Where (permalink)                    | How to check          |

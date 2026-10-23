@@ -1,3 +1,5 @@
+import MovieList from "./components/MovieList.jsx";
+
 const movies = [
   { id: 1, title: "Dune: Part Two", watched: false, place: "cinema" },
   { id: 2, title: "Whiplash", watched: true, place: "streaming" },
@@ -19,8 +21,7 @@ export default function App() {
       <main className="container">
         <section className="panel">
           <h2>My movies</h2>
-          {/* Temporary: raw data; components come in Stage 4 */}
-          <pre>{JSON.stringify(movies, null, 2)}</pre>
+          <MovieList movies={movies} />
         </section>
       </main>
     </>
