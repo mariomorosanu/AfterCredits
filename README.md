@@ -41,6 +41,10 @@ The list is rendered from the data, through two components:
 ## Stage 5: local state and events
 The list lives in React state. Checking and deleting work from the page, and the counters in the header follow automatically. A button in the header switches between light and dark mode. Changes are lost on refresh, which is what stage 6 and stage 10 fix.
 
+## Stage 6: data from a mock API
+The list is served by json-server from `frontend/db.json` (the three sample movies plus Interstellar and Spirited Away). The app fetches it on load and shows a loading state and an error state. Checking and deleting are still local and are lost on refresh, which stage 7 fixes.
+
+
 ## How to run
 ```bash
 cd frontend
@@ -49,13 +53,19 @@ npm run dev
 ```
 Then open the address printed in the terminal (http://localhost:5173).
 
+From stage 6 on, also start the API:
+
+npm run api   # terminal 1, http://localhost:3001
+npm run dev   # terminal 2, http://localhost:5173
+
 ## Status
 - [x] Stage 1: static mockup
 - [x] Stage 2: data logic in JavaScript
 - [x] Stage 3: Vite and React project
 - [x] Stage 4: components rendered from data
 - [x] Stage 5: local state and events
-- [ ] Stage 6: loading data from a mock API 
+- [x] Stage 6: data from a mock API
+- [ ] Stage 7: form and validation
 
 ## Stage 1 verification table
 | ID    | Requirement                                          | Where (permalink)                    | How to check          |

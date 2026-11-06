@@ -12,6 +12,8 @@
   --on-accent: #ffffff;
   --shadow: rgba(40, 30, 10, 0.15);
   --danger: #b3261e;
+  --error-bg: #fbe9e7;
+  --error-border: #f0b8b2;
 
   --header-from: #1d1a14;
   --header-to: #0e0c09;
@@ -37,6 +39,8 @@
     --on-accent: #0b0d12;
     --shadow: rgba(0, 0, 0, 0.55);
     --danger: #f0776e;
+    --error-bg: #2d1614;
+    --error-border: #6b2a24;
     --header-from: #141821;
     --header-to: #07080c;
   }
@@ -54,6 +58,8 @@
   --on-accent: #0b0d12;
   --shadow: rgba(0, 0, 0, 0.55);
   --danger: #f0776e;
+  --error-bg: #2d1614;
+  --error-border: #6b2a24;
   --header-from: #141821;
   --header-to: #07080c;
 }
@@ -326,6 +332,18 @@ button:hover {
 
 .theme-toggle:hover {
   background: rgba(255, 255, 255, 0.15);
+}
+
+.info {
+  color: var(--muted);
+}
+
+.error {
+  color: var(--danger);
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  border-radius: 8px;
+  padding: 10px 12px;
 }
 
 @media (max-width: 700px) {

@@ -1,0 +1,9 @@
+{
+  "movies": [
+    { "id": 1, "title": "Dune: Part Two", "watched": false, "place": "cinema" },
+    { "id": 2, "title": "Whiplash", "watched": true, "place": "streaming" },
+    { "id": 3, "title": "Parasite", "watched": false, "place": "home" },
+    { "id": 4, "title": "Interstellar", "watched": false, "place": "cinema" },
+    { "id": 5, "title": "Spirited Away", "watched": true, "place": "home" }
+  ]
+}

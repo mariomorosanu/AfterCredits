@@ -1,11 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MovieList from "./components/MovieList.jsx";
-
-const INITIAL_MOVIES = [
-  { id: 1, title: "Dune: Part Two", watched: false, place: "cinema" },
-  { id: 2, title: "Whiplash", watched: true, place: "streaming" },
-  { id: 3, title: "Parasite", watched: false, place: "home" },
-];
+import { fetchMovies } from "./api.js";
 
 function initialTheme() {
   return window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -14,8 +9,30 @@ function initialTheme() {
 }
 
 export default function App() {
-  const [movies, setMovies] = useState(INITIAL_MOVIES);
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [theme, setTheme] = useState(initialTheme);
+
+  useEffect(() => {
+    let ignore = false;
+
+    async function load() {
+      try {
+        const data = await fetchMovies();
+        if (!ignore) setMovies(data);
+      } catch (err) {
+        if (!ignore) setError(err.message);
+      } finally {
+        if (!ignore) setLoading(false);
+      }
+    }
+
+    load();
+    return () => {
+      ignore = true;
+    };
+  }, []);
 
   function handleToggleWatched(id) {
     setMovies((prev) =>
@@ -54,11 +71,20 @@ export default function App() {
       <main className="container">
         <section className="panel">
           <h2>My movies</h2>
-          <MovieList
-            movies={movies}
-            onToggle={handleToggleWatched}
-            onDelete={handleDelete}
-          />
+          {loading && <p className="info">Loading movies...</p>}
+          {error && (
+            <p className="error">
+              Could not load the data: {error}. Is <code>npm run api</code>{" "}
+              running?
+            </p>
+          )}
+          {!loading && !error && (
+            <MovieList
+              movies={movies}
+              onToggle={handleToggleWatched}
+              onDelete={handleDelete}
+            />
+          )}
         </section>
       </main>
     </>
