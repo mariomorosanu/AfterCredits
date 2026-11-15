@@ -44,6 +44,8 @@ The list lives in React state. Checking and deleting work from the page, and the
 ## Stage 6: data from a mock API
 The list is served by json-server from `frontend/db.json` (the three sample movies plus Interstellar and Spirited Away). The app fetches it on load and shows a loading state and an error state. Checking and deleting are still local and are lost on refresh, which stage 7 fixes.
 
+## Stage 7: form and validation
+Movies can be added from the page. The form is controlled and validated, and every change (add, toggle, delete) goes to the API before it shows up in the list.
 
 ## How to run
 ```bash
@@ -65,7 +67,8 @@ npm run dev   # terminal 2, http://localhost:5173
 - [x] Stage 4: components rendered from data
 - [x] Stage 5: local state and events
 - [x] Stage 6: data from a mock API
-- [ ] Stage 7: form and validation
+- [x] Stage 7: form and validation
+- [ ] Stage 8: routing and detail page
 
 ## Stage 1 verification table
 | ID    | Requirement                                          | Where (permalink)                    | How to check          |

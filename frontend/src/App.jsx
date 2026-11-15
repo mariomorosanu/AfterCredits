@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import MovieList from "./components/MovieList.jsx";
-import { fetchMovies } from "./api.js";
+import MovieForm from "./components/MovieForm.jsx";
+import {
+  createMovie,
+  deleteMovie,
+  fetchMovies,
+  updateMovie,
+} from "./api.js";
 
 function initialTheme() {
   return window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -34,14 +40,28 @@ export default function App() {
     };
   }, []);
 
-  function handleToggleWatched(id) {
-    setMovies((prev) =>
-      prev.map((m) => (m.id === id ? { ...m, watched: !m.watched } : m))
-    );
+  async function handleAdd(movie) {
+    const created = await createMovie(movie);
+    setMovies((prev) => [...prev, created]);
   }
 
-  function handleDelete(id) {
-    setMovies((prev) => prev.filter((m) => m.id !== id));
+  async function handleToggleWatched(id) {
+    const movie = movies.find((m) => m.id === id);
+    try {
+      const updated = await updateMovie(id, { watched: !movie.watched });
+      setMovies((prev) => prev.map((m) => (m.id === id ? updated : m)));
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
+  async function handleDelete(id) {
+    try {
+      await deleteMovie(id);
+      setMovies((prev) => prev.filter((m) => m.id !== id));
+    } catch (err) {
+      setError(err.message);
+    }
   }
 
   function handleTheme() {
@@ -70,15 +90,23 @@ export default function App() {
       </header>
       <main className="container">
         <section className="panel">
+          <h2>Add movie</h2>
+          <MovieForm onAdd={handleAdd} />
+        </section>
+
+        <section className="panel">
           <h2>My movies</h2>
-          {loading && <p className="info">Loading movies...</p>}
-          {error && (
-            <p className="error">
-              Could not load the data: {error}. Is <code>npm run api</code>{" "}
-              running?
+          {loading && (
+            <p className="info" data-testid="loading">
+              Loading movies...
             </p>
           )}
-          {!loading && !error && (
+          {error && (
+            <p className="error" data-testid="error">
+              {error}
+            </p>
+          )}
+          {!loading && (
             <MovieList
               movies={movies}
               onToggle={handleToggleWatched}

@@ -1,0 +1,6 @@
+{
+  "resource": "movies",
+  "title": "title",
+  "done": "watched",
+  "sample": { "place": "cinema" }
+}

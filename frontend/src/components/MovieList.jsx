@@ -2,7 +2,11 @@ import MovieCard from "./MovieCard.jsx";
 
 export default function MovieList({ movies, onToggle, onDelete }) {
   if (movies.length === 0) {
-    return <p className="empty">The movie list is empty.</p>;
+    return (
+      <p className="empty" data-testid="empty">
+        The movie list is empty.
+      </p>
+    );
   }
 
   return (

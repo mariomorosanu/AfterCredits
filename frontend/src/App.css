@@ -107,7 +107,7 @@ body {
   margin: 24px auto;
   padding: 0 16px;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: 24px;
   align-items: start;
 }
@@ -344,6 +344,15 @@ button:hover {
   border: 1px solid var(--error-border);
   border-radius: 8px;
   padding: 10px 12px;
+}
+
+.item-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.item-form input[aria-invalid="true"] {
+  border-color: var(--danger);
 }
 
 @media (max-width: 700px) {
