@@ -141,3 +141,17 @@ npm run dev   # terminal 2, http://localhost:5173
 | S6-R5 | fetch only in api.js, URL from env       | [api.js#L1-L9](https://github.com/mariomorosanu/AfterCredits/blob/d07d397b8f19623394e02a3f72b7edc550f481b4/frontend/src/api.js#L1-L9), [.env.example](https://github.com/mariomorosanu/AfterCredits/blob/d07d397b8f19623394e02a3f72b7edc550f481b4/frontend/.env.example#L1)       | search for fetch                |
 | S6-R6 | README Stage 6 section + AI log          | [README.md](https://github.com/mariomorosanu/AfterCredits/blob/d07d397b8f19623394e02a3f72b7edc550f481b4/README.md?plain=1#L1-L126), [ai-log/etapa-06.md](https://github.com/mariomorosanu/AfterCredits/blob/d07d397b8f19623394e02a3f72b7edc550f481b4/ai-log/etapa-06.md?plain=1#L1-L21)    | read                            |
 | S6-R7 | commit "Stage 6" pushed                  | [Stage 6 commit](https://github.com/mariomorosanu/AfterCredits/commit/d07d397b8f19623394e02a3f72b7edc550f481b4)                                | commit history                  |
+
+
+## Stage 7 verification table
+| ID | Requirement | Where (permalink) | How to check |
+| --- | --- | --- | --- |
+| S7-R1 | controlled form: value + onChange on every field | [MovieForm.jsx#L54-L70](https://github.com/mariomorosanu/AfterCredits/blob/94edbec7996a3312055d9502cc86f00adc75265e/frontend/src/components/MovieForm.jsx#L52-L70) | read |
+| S7-R2 | empty title shows an error, nothing is sent | [MovieForm.jsx#L16-L23](https://github.com/mariomorosanu/AfterCredits/blob/94edbec7996a3312055d9502cc86f00adc75265e/frontend/src/components/MovieForm.jsx#L16-L23) (validate) | submit empty, watch Network |
+| S7-R3 | added item shows in the list and survives refresh | [App.jsx#L43-L46](https://github.com/mariomorosanu/AfterCredits/blob/94edbec7996a3312055d9502cc86f00adc75265e/frontend/src/App.jsx#L43-L46) (handleAdd), [api.js#L18-L20](https://github.com/mariomorosanu/AfterCredits/blob/94edbec7996a3312055d9502cc86f00adc75265e/frontend/src/api.js#L18-L20) | add, refresh |
+| S7-R4 | toggle and delete survive refresh | [App.jsx#L48-L65](https://github.com/mariomorosanu/AfterCredits/blob/94edbec7996a3312055d9502cc86f00adc75265e/frontend/src/App.jsx#L48-L65) | toggle/delete, refresh |
+| S7-R5 | button disabled while sending, form cleared only on success | [MovieForm.jsx#L33-L43](https://github.com/mariomorosanu/AfterCredits/blob/94edbec7996a3312055d9502cc86f00adc75265e/frontend/src/components/MovieForm.jsx#L33-L43), [MovieForm.jsx#L83-L85](https://github.com/mariomorosanu/AfterCredits/blob/94edbec7996a3312055d9502cc86f00adc75265e/frontend/src/components/MovieForm.jsx#L83-L86) | --delay 3000, stop API and submit |
+| S7-R6 | tw.json and the data-testid attributes from table 7.3 | [tw.json](https://github.com/mariomorosanu/AfterCredits/blob/94edbec7996a3312055d9502cc86f00adc75265e/tw.json#L1-L6), [MovieCard.jsx#L1-L34](https://github.com/mariomorosanu/AfterCredits/blob/94edbec7996a3312055d9502cc86f00adc75265e/frontend/src/components/MovieCard.jsx#L1-L34) | querySelectorAll in the console |
+| S7-R7 | README Stage 7 section + AI log | [README.md](https://github.com/mariomorosanu/AfterCredits/blob/94edbec7996a3312055d9502cc86f00adc75265e/README.md?plain=1#L1-L143), [ai-log/etapa-07.md](https://github.com/mariomorosanu/AfterCredits/blob/94edbec7996a3312055d9502cc86f00adc75265e/ai-log/etapa-07md#L1-L16) | read |
+| S7-R8 | commit "Stage 7" pushed | [Stage 7 commit](https://github.com/mariomorosanu/AfterCredits/commit/94edbec7996a3312055d9502cc86f00adc75265e) | commit history |
+
