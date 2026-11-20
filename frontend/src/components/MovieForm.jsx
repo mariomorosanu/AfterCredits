@@ -1,10 +1,7 @@
 import { useState } from "react";
+import { PLACES } from "../constants.js";
+import styles from "./MovieForm.module.css";
 
-const PLACES = [
-  { value: "cinema", label: "Cinema" },
-  { value: "streaming", label: "Streaming" },
-  { value: "home", label: "Home" },
-];
 const TITLE_MAX = 100;
 
 export default function MovieForm({ onAdd }) {
@@ -44,7 +41,7 @@ export default function MovieForm({ onAdd }) {
 
   return (
     <form
-      className="item-form"
+      className={styles.form}
       onSubmit={handleSubmit}
       noValidate
       data-testid="form"
@@ -80,7 +77,12 @@ export default function MovieForm({ onAdd }) {
           {error}
         </p>
       )}
-      <button type="submit" disabled={submitting} data-testid="form-submit">
+      <button
+        type="submit"
+        className="btn"
+        disabled={submitting}
+        data-testid="form-submit"
+      >
         {submitting ? "Saving..." : "Add movie"}
       </button>
     </form>

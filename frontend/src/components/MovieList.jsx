@@ -1,4 +1,5 @@
 import MovieCard from "./MovieCard.jsx";
+import styles from "./MovieList.module.css";
 
 export default function MovieList({ movies, onToggle, onDelete }) {
   if (movies.length === 0) {
@@ -10,7 +11,7 @@ export default function MovieList({ movies, onToggle, onDelete }) {
   }
 
   return (
-    <ul className="item-list">
+    <ul className={styles.list}>
       {movies.map((movie) => (
         <MovieCard
           key={movie.id}

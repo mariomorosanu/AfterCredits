@@ -4,36 +4,46 @@
       "id": 1,
       "title": "Dune: Part Two",
       "watched": false,
-      "place": "cinema"
+      "place": "cinema",
+      "genre": "Sci-Fi",
+      "year": 2024
     },
     {
       "id": 2,
       "title": "Whiplash",
-      "watched": true,
-      "place": "streaming"
+      "watched": false,
+      "place": "streaming",
+      "genre": "Drama",
+      "year": 2014
     },
     {
       "id": 3,
       "title": "Parasite",
       "watched": false,
-      "place": "home"
+      "place": "home",
+      "genre": "Thriller",
+      "year": 2019
     },
     {
       "id": 4,
       "title": "Interstellar",
       "watched": false,
-      "place": "cinema"
+      "place": "cinema",
+      "genre": "Sci-Fi",
+      "year": 2014
     },
     {
       "id": 5,
       "title": "Spirited Away",
       "watched": true,
-      "place": "home"
+      "place": "home",
+      "genre": "Fantasy",
+      "year": 2001
     },
     {
-      "title": "Black Swan",
+      "title": "All of us strangers",
       "place": "home",
-      "watched": false,
+      "watched": true,
       "id": 6
     }
   ]

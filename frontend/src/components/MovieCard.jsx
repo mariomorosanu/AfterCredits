@@ -1,26 +1,34 @@
-const PLACE_LABELS = { cinema: "Cinema", streaming: "Streaming", home: "Home" };
+import { Link } from "react-router-dom";
+import { PLACE_LABELS } from "../constants.js";
+import styles from "./MovieCard.module.css";
 
 export default function MovieCard({ movie, onToggle, onDelete }) {
   return (
     <li
-      className={movie.watched ? "item-card done" : "item-card"}
+      className={movie.watched ? `${styles.card} ${styles.done}` : styles.card}
+      data-place={movie.place}
       data-testid="item"
       data-id={movie.id}
     >
-      <label className="item-main">
+      <div className={styles.main}>
         <input
           type="checkbox"
           checked={movie.watched}
           onChange={() => onToggle(movie.id)}
+          aria-label={`Mark ${movie.title} as watched`}
           data-testid="item-toggle"
         />
         <div>
-          <h3 data-testid="item-title">{movie.title}</h3>
+          <h3 className={styles.title}>
+            <Link to={`/movies/${movie.id}`} data-testid="item-link">
+              {movie.title}
+            </Link>
+          </h3>
           <span className={`badge badge-${movie.place}`}>
             {PLACE_LABELS[movie.place]}
           </span>
         </div>
-      </label>
+      </div>
       <button
         className="btn-danger"
         onClick={() => onDelete(movie.id)}

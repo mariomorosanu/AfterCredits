@@ -15,6 +15,10 @@ export function fetchMovies() {
   return request("/movies");
 }
 
+export function fetchMovie(id) {
+  return request(`/movies/${id}`);
+}
+
 export function createMovie(movie) {
   return request("/movies", { method: "POST", body: JSON.stringify(movie) });
 }

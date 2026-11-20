@@ -1,0 +1,77 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px 12px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.card::before {
+  content: "";
+  flex-shrink: 0;
+  width: 46px;
+  height: 66px;
+  margin-right: 14px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: linear-gradient(160deg, var(--accent), var(--bg));
+  box-shadow: 0 3px 8px var(--shadow);
+}
+
+.card[data-place="cinema"]::before {
+  background: linear-gradient(160deg, var(--badge-cinema), var(--bg));
+}
+
+.card[data-place="streaming"]::before {
+  background: linear-gradient(160deg, var(--badge-streaming), var(--bg));
+}
+
+.card[data-place="home"]::before {
+  background: linear-gradient(160deg, var(--badge-home), var(--bg));
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.main input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.title {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+.title a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.title a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.done .title a {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.done::before {
+  filter: grayscale(0.8);
+  opacity: 0.6;
+}
